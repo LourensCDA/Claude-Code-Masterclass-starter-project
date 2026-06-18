@@ -1,0 +1,37 @@
+@reference "../../app/globals.css";
+
+.authForm {
+  @apply mx-auto flex w-full max-w-sm flex-col gap-4;
+}
+
+.field {
+  @apply flex flex-col gap-1;
+}
+
+.field label {
+  @apply text-sm font-semibold text-heading;
+}
+
+.field input {
+  @apply w-full rounded-md bg-lighter px-3 py-2 text-heading outline-none;
+}
+
+.passwordWrapper {
+  @apply relative;
+}
+
+.passwordWrapper input {
+  @apply pr-10;
+}
+
+.toggle {
+  @apply absolute inset-y-0 right-0 flex items-center px-3 text-body transition-colors hover:text-heading;
+}
+
+.switch {
+  @apply text-center text-sm text-body;
+}
+
+.switch a {
+  @apply font-semibold text-primary hover:text-secondary;
+}
