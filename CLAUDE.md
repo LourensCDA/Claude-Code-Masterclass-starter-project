@@ -21,6 +21,7 @@ Pocket Heist — a "tiny office heist" planning app, used as the starter project
 Next.js 16 (App Router) + React 19 + TypeScript (strict) + Tailwind CSS v4.
 
 **Route groups drive layout.** The `app/` directory splits routes into two groups with different chrome:
+
 - `app/(public)/` — unauthenticated pages (`/`, `/login`, `/signup`, `/preview`). Bare `<main className="public">` layout, no nav.
 - `app/(dashboard)/` — the authenticated app (`/heists`, `/heists/create`, `/heists/[id]`). Layout renders the shared `<Navbar />`.
 
@@ -31,3 +32,7 @@ The root `/` page (`app/(public)/page.tsx`) is a splash page whose intended job 
 **Styling is Tailwind v4, CSS-first.** There is no `tailwind.config.js`. The theme (colors, fonts) is defined with `@theme` in `app/globals.css` using CSS variables like `--color-primary`. Use those tokens via utilities (`bg-light`, `text-body`, `text-heading`, etc.). CSS Modules that need `@apply` must start with `@reference "../../app/globals.css";` to pull in the theme — see `components/Navbar/Navbar.module.css`. Reuse existing global classes where they fit (e.g. `.btn`, `.page-content`, `.form-title`) instead of redefining equivalent styles in a module.
 
 **Tests** live under `tests/`, mirroring the source tree (e.g. `tests/components/Navbar.test.tsx`). Vitest runs in a `jsdom` environment with globals enabled (no need to import `describe`/`it`/`expect`, though existing tests do). `@testing-library/jest-dom` matchers are loaded via `vitest.setup.ts`; the `@/*` alias works in tests through `vite-tsconfig-paths`. `@testing-library/user-event` is available for simulating typing/clicking in interactive components (e.g. `tests/components/AuthForm.test.tsx`).
+
+## Checking Documentation
+
+- **important** When implementing any lib/gramework-specific features, ALWAYS check the appropriate lib/framework documentation using the Context7 MCP server before writing any code.
